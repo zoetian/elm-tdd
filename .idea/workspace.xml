@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aac37a36-ebb1-4819-8fdd-d6046f2f5c35" name="Default Changelist" comment="" />
+    <list default="true" id="aac37a36-ebb1-4819-8fdd-d6046f2f5c35" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/0.19.1/Main.elmi" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/0.19.1/Main.elmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/0.19.1/Main.elmo" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/0.19.1/Main.elmo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/0.19.1/d.dat" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/0.19.1/d.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/Example.elmo" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/Example.elmo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/Main.elmi" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/Main.elmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/Main.elmo" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/Main.elmo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/d.dat" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elm-stuff/0.19.1/d.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elmTestOutput.js" beforeDir="false" afterPath="$PROJECT_DIR$/elm-stuff/generated-code/elm-community/elm-test/0.19.1/elmTestOutput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.elm" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.elm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Example.elm" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Example.elm" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +35,13 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.13.3/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TFOrCmOw7EkCo6c9XdH55f3oBx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/elm.json" />
@@ -56,5 +74,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

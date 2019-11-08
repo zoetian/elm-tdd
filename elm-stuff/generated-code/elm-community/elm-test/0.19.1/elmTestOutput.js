@@ -7896,9 +7896,220 @@ var $author$project$Test$Runner$Node$run = F2(
 				update: $author$project$Test$Runner$Node$update
 			});
 	});
-var $author$project$Main$Click = {$: 'Click'};
+var $author$project$Main$Add = {$: 'Add'};
+var $author$project$Main$Checked = function (a) {
+	return {$: 'Checked', a: a};
+};
+var $author$project$Main$Delete = function (a) {
+	return {$: 'Delete', a: a};
+};
+var $author$project$Main$Edit = function (a) {
+	return {$: 'Edit', a: a};
+};
 var $author$project$Main$Input = function (a) {
 	return {$: 'Input', a: a};
+};
+var $elm_explorations$test$Test$Html$Selector$Internal$Classes = function (a) {
+	return {$: 'Classes', a: a};
+};
+var $elm_explorations$test$Test$Html$Selector$Internal$Invalid = {$: 'Invalid'};
+var $elm_explorations$test$Test$Html$Selector$Internal$Style = function (a) {
+	return {$: 'Style', a: a};
+};
+var $elm$json$Json$Decode$bool = _Json_decodeBool;
+var $elm$core$Result$map = F2(
+	function (func, ra) {
+		if (ra.$ === 'Ok') {
+			var a = ra.a;
+			return $elm$core$Result$Ok(
+				func(a));
+		} else {
+			var e = ra.a;
+			return $elm$core$Result$Err(e);
+		}
+	});
+var $elm_explorations$test$Test$Html$Selector$Internal$Attribute = function (a) {
+	return {$: 'Attribute', a: a};
+};
+var $elm_explorations$test$Test$Html$Selector$Internal$namedAttr = F2(
+	function (name, value) {
+		return $elm_explorations$test$Test$Html$Selector$Internal$Attribute(
+			{name: name, value: value});
+	});
+var $elm_explorations$test$Test$Html$Selector$Internal$BoolAttribute = function (a) {
+	return {$: 'BoolAttribute', a: a};
+};
+var $elm_explorations$test$Test$Html$Selector$Internal$namedBoolAttr = F2(
+	function (name, value) {
+		return $elm_explorations$test$Test$Html$Selector$Internal$BoolAttribute(
+			{name: name, value: value});
+	});
+var $elm_explorations$test$Test$Html$Selector$orElseLazy = F2(
+	function (fma, mb) {
+		if (mb.$ === 'Err') {
+			return fma(_Utils_Tuple0);
+		} else {
+			return mb;
+		}
+	});
+var $elm_explorations$test$Test$Html$Internal$Inert$attributeToJson = function (attribute) {
+	return _HtmlAsJson_attributeToJson(attribute);
+};
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$Attribute = function (a) {
+	return {$: 'Attribute', a: a};
+};
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$AttributeRecord = F2(
+	function (key, value) {
+		return {key: key, value: value};
+	});
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$NamespacedAttribute = function (a) {
+	return {$: 'NamespacedAttribute', a: a};
+};
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$NamespacedAttributeRecord = F3(
+	function (key, value, namespace) {
+		return {key: key, namespace: namespace, value: value};
+	});
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$Property = function (a) {
+	return {$: 'Property', a: a};
+};
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$PropertyRecord = F2(
+	function (key, value) {
+		return {key: key, value: value};
+	});
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$Style = function (a) {
+	return {$: 'Style', a: a};
+};
+var $elm$json$Json$Decode$at = F2(
+	function (fields, decoder) {
+		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
+	});
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeKey = 'a3';
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeNamespaceKey = 'a4';
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$propKey = 'a2';
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$styleKey = 'a1';
+var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$decodeAttribute = A2(
+	$elm$json$Json$Decode$andThen,
+	function (tag) {
+		return _Utils_eq(tag, $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeKey) ? A3(
+			$elm$json$Json$Decode$map2,
+			F2(
+				function (key, val) {
+					return $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$Attribute(
+						A2($elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$AttributeRecord, key, val));
+				}),
+			A2($elm$json$Json$Decode$field, 'n', $elm$json$Json$Decode$string),
+			A2($elm$json$Json$Decode$field, 'o', $elm$json$Json$Decode$string)) : (_Utils_eq(tag, $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeNamespaceKey) ? A2(
+			$elm$json$Json$Decode$map,
+			$elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$NamespacedAttribute,
+			A4(
+				$elm$json$Json$Decode$map3,
+				$elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$NamespacedAttributeRecord,
+				A2($elm$json$Json$Decode$field, 'n', $elm$json$Json$Decode$string),
+				A2(
+					$elm$json$Json$Decode$at,
+					_List_fromArray(
+						['o', 'o']),
+					$elm$json$Json$Decode$string),
+				A2(
+					$elm$json$Json$Decode$at,
+					_List_fromArray(
+						['o', 'f']),
+					$elm$json$Json$Decode$string))) : (_Utils_eq(tag, $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$styleKey) ? A3(
+			$elm$json$Json$Decode$map2,
+			F2(
+				function (key, val) {
+					return $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$Style(
+						{key: key, value: val});
+				}),
+			A2($elm$json$Json$Decode$field, 'n', $elm$json$Json$Decode$string),
+			A2($elm$json$Json$Decode$field, 'o', $elm$json$Json$Decode$string)) : (_Utils_eq(tag, $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$propKey) ? A3(
+			$elm$json$Json$Decode$map2,
+			F2(
+				function (key, val) {
+					return $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$Property(
+						A2($elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$PropertyRecord, key, val));
+				}),
+			A2($elm$json$Json$Decode$field, 'n', $elm$json$Json$Decode$string),
+			A2(
+				$elm$json$Json$Decode$at,
+				_List_fromArray(
+					['o', 'a']),
+				$elm$json$Json$Decode$value)) : $elm$json$Json$Decode$fail('Unexpected Html.Attribute tag: ' + tag))));
+	},
+	A2($elm$json$Json$Decode$field, '$', $elm$json$Json$Decode$string));
+var $elm_explorations$test$Test$Html$Internal$Inert$parseAttribute = function (attr) {
+	var _v0 = A2(
+		$elm$json$Json$Decode$decodeValue,
+		$elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$decodeAttribute,
+		$elm_explorations$test$Test$Html$Internal$Inert$attributeToJson(attr));
+	if (_v0.$ === 'Ok') {
+		var parsedAttribute = _v0.a;
+		return $elm$core$Result$Ok(parsedAttribute);
+	} else {
+		var jsonError = _v0.a;
+		return $elm$core$Result$Err(
+			'Error internally processing Attribute for testing - please report this error message as a bug: ' + $elm$json$Json$Decode$errorToString(jsonError));
+	}
+};
+var $elm$core$String$toLower = _String_toLower;
+var $elm$core$Result$withDefault = F2(
+	function (def, result) {
+		if (result.$ === 'Ok') {
+			var a = result.a;
+			return a;
+		} else {
+			return def;
+		}
+	});
+var $elm_explorations$test$Test$Html$Selector$attribute = function (attr) {
+	var _v0 = $elm_explorations$test$Test$Html$Internal$Inert$parseAttribute(attr);
+	_v0$3:
+	while (true) {
+		if (_v0.$ === 'Ok') {
+			switch (_v0.a.$) {
+				case 'Attribute':
+					var key = _v0.a.a.key;
+					var value = _v0.a.a.value;
+					return ($elm$core$String$toLower(key) === 'class') ? $elm_explorations$test$Test$Html$Selector$Internal$Classes(
+						A2($elm$core$String$split, ' ', value)) : A2($elm_explorations$test$Test$Html$Selector$Internal$namedAttr, key, value);
+				case 'Property':
+					var key = _v0.a.a.key;
+					var value = _v0.a.a.value;
+					return (key === 'className') ? $elm_explorations$test$Test$Html$Selector$Internal$Classes(
+						A2(
+							$elm$core$Result$withDefault,
+							_List_Nil,
+							A2(
+								$elm$core$Result$map,
+								$elm$core$String$split(' '),
+								A2($elm$json$Json$Decode$decodeValue, $elm$json$Json$Decode$string, value)))) : A2(
+						$elm$core$Result$withDefault,
+						$elm_explorations$test$Test$Html$Selector$Internal$Invalid,
+						A2(
+							$elm_explorations$test$Test$Html$Selector$orElseLazy,
+							function (_v1) {
+								return A2(
+									$elm$core$Result$map,
+									$elm_explorations$test$Test$Html$Selector$Internal$namedBoolAttr(key),
+									A2($elm$json$Json$Decode$decodeValue, $elm$json$Json$Decode$bool, value));
+							},
+							A2(
+								$elm$core$Result$map,
+								$elm_explorations$test$Test$Html$Selector$Internal$namedAttr(key),
+								A2($elm$json$Json$Decode$decodeValue, $elm$json$Json$Decode$string, value))));
+				case 'Style':
+					var key = _v0.a.a.key;
+					var value = _v0.a.a.value;
+					return $elm_explorations$test$Test$Html$Selector$Internal$Style(
+						{key: key, value: value});
+				default:
+					break _v0$3;
+			}
+		} else {
+			break _v0$3;
+		}
+	}
+	return $elm_explorations$test$Test$Html$Selector$Internal$Invalid;
 };
 var $elm_explorations$test$Test$Html$Query$Internal$Children = function (a) {
 	return {$: 'Children', a: a};
@@ -8033,7 +8244,6 @@ var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$voidElements
 var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$toElementKind = function (element) {
 	return A2($elm$core$List$member, element, $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$voidElements) ? $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$VoidElements : (A2($elm$core$List$member, element, $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$rawTextElements) ? $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$RawTextElements : (A2($elm$core$List$member, element, $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$escapableRawTextElements) ? $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$EscapableRawTextElements : $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$NormalElements));
 };
-var $elm$core$String$toLower = _String_toLower;
 var $elm_explorations$test$Test$Html$Internal$ElmHtml$ToString$nodeRecordToString = F2(
 	function (options, _v1) {
 		var tag = _v1.tag;
@@ -9023,17 +9233,6 @@ var $elm_explorations$test$Test$Html$Query$Internal$OtherInternalError = functio
 var $elm_explorations$test$Test$Html$Query$Internal$NoResultsForSingle = function (a) {
 	return {$: 'NoResultsForSingle', a: a};
 };
-var $elm$core$Result$map = F2(
-	function (func, ra) {
-		if (ra.$ === 'Ok') {
-			var a = ra.a;
-			return $elm$core$Result$Ok(
-				func(a));
-		} else {
-			var e = ra.a;
-			return $elm$core$Result$Err(e);
-		}
-	});
 var $elm_explorations$test$Test$Html$Query$Internal$MultipleResultsForSingle = F2(
 	function (a, b) {
 		return {$: 'MultipleResultsForSingle', a: a, b: b};
@@ -9163,6 +9362,7 @@ var $elm_explorations$test$Test$Html$Query$count = F2(
 					expect,
 					A3($elm_explorations$test$Test$Html$Query$Internal$failWithQuery, showTrace, 'Query.count', query))));
 	});
+var $elm_explorations$test$Test$Html$Event$doubleClick = _Utils_Tuple2('dblclick', $elm_explorations$test$Test$Html$Event$emptyObject);
 var $elm_explorations$test$Test$Runner$Failure$Equality = F2(
 	function (a, b) {
 		return {$: 'Equality', a: a, b: b};
@@ -9392,10 +9592,6 @@ var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$NodeRecord =
 var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$TextTag = function (a) {
 	return {$: 'TextTag', a: a};
 };
-var $elm$json$Json$Decode$at = F2(
-	function (fields, decoder) {
-		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
-	});
 var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$CustomNode = function (a) {
 	return {$: 'CustomNode', a: a};
 };
@@ -9407,8 +9603,6 @@ var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$Facts = F5(
 	function (styles, events, attributeNamespace, stringAttributes, boolAttributes) {
 		return {attributeNamespace: attributeNamespace, boolAttributes: boolAttributes, events: events, stringAttributes: stringAttributes, styles: styles};
 	});
-var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeNamespaceKey = 'a4';
-var $elm$json$Json$Decode$bool = _Json_decodeBool;
 var $elm$json$Json$Decode$keyValuePairs = _Json_decodeKeyValuePairs;
 var $elm$json$Json$Decode$dict = function (decoder) {
 	return A2(
@@ -9431,7 +9625,6 @@ var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$decodeEvents
 				$elm$json$Json$Decode$succeed($elm$core$Dict$empty)
 			]));
 };
-var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeKey = 'a3';
 var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$decodeDictFilterMap = function (decoder) {
 	return A2(
 		$elm$json$Json$Decode$map,
@@ -9467,7 +9660,6 @@ var $elm_explorations$test$Test$Html$Internal$ElmHtml$InternalTypes$decodeAttrib
 				$elm$json$Json$Decode$succeed($elm$core$Dict$empty)
 			]));
 };
-var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$styleKey = 'a1';
 var $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$knownKeys = _List_fromArray(
 	[$elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$styleKey, $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$eventKey, $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeKey, $elm_explorations$test$Test$Html$Internal$ElmHtml$Constants$attributeNamespaceKey]);
 var $elm_explorations$test$Test$Html$Internal$ElmHtml$Helpers$filterKnownKeys = $elm$core$Dict$filter(
@@ -9871,13 +10063,68 @@ var $elm_explorations$test$Test$Html$Query$has = F2(
 			query,
 			A2($elm_explorations$test$Test$Html$Query$Internal$has, selectors, query));
 	});
-var $elm_explorations$test$Test$Html$Selector$Internal$Attribute = function (a) {
-	return {$: 'Attribute', a: a};
-};
-var $elm_explorations$test$Test$Html$Selector$Internal$namedAttr = F2(
-	function (name, value) {
-		return $elm_explorations$test$Test$Html$Selector$Internal$Attribute(
-			{name: name, value: value});
+var $elm_explorations$test$Test$Html$Query$Internal$showSelectorOutcomeInverse = F2(
+	function (elmHtmlList, selector) {
+		var outcome = function () {
+			var _v0 = A2(
+				$elm_explorations$test$Test$Html$Selector$Internal$queryAll,
+				_List_fromArray(
+					[selector]),
+				elmHtmlList);
+			if (!_v0.b) {
+				return '✓';
+			} else {
+				return '✗';
+			}
+		}();
+		return A2(
+			$elm$core$String$join,
+			' ',
+			_List_fromArray(
+				[
+					outcome,
+					'has not',
+					$elm_explorations$test$Test$Html$Selector$Internal$selectorToString(selector)
+				]));
+	});
+var $elm_explorations$test$Test$Html$Query$Internal$hasNot = F2(
+	function (selectors, query) {
+		var _v0 = $elm_explorations$test$Test$Html$Query$Internal$traverse(query);
+		if (_v0.$ === 'Ok') {
+			if (!_v0.a.b) {
+				return $elm_explorations$test$Expect$pass;
+			} else {
+				var elmHtmlList = _v0.a;
+				var _v1 = A2($elm_explorations$test$Test$Html$Selector$Internal$queryAll, selectors, elmHtmlList);
+				if (!_v1.b) {
+					return $elm_explorations$test$Expect$pass;
+				} else {
+					return $elm_explorations$test$Expect$fail(
+						A2(
+							$elm$core$String$join,
+							'\n',
+							A2(
+								$elm$core$List$map,
+								$elm_explorations$test$Test$Html$Query$Internal$showSelectorOutcomeInverse(elmHtmlList),
+								selectors)));
+				}
+			}
+		} else {
+			var error = _v0.a;
+			return $elm_explorations$test$Expect$pass;
+		}
+	});
+var $elm_explorations$test$Test$Html$Query$hasNot = F2(
+	function (selectors, _v0) {
+		var showTrace = _v0.a;
+		var query = _v0.b;
+		var queryName = 'Query.hasNot ' + A2($elm_explorations$test$Test$Html$Query$Internal$joinAsList, $elm_explorations$test$Test$Html$Selector$Internal$selectorToString, selectors);
+		return A4(
+			$elm_explorations$test$Test$Html$Query$Internal$failWithQuery,
+			showTrace,
+			queryName,
+			query,
+			A2($elm_explorations$test$Test$Html$Query$Internal$hasNot, selectors, query));
 	});
 var $elm_explorations$test$Test$Html$Selector$id = $elm_explorations$test$Test$Html$Selector$Internal$namedAttr('id');
 var $elm_explorations$test$Test$Html$Query$Internal$Index = function (a) {
@@ -9895,7 +10142,7 @@ var $elm_explorations$test$Test$Html$Query$index = F2(
 				query,
 				$elm_explorations$test$Test$Html$Query$Internal$Index(position)));
 	});
-var $author$project$Main$init = {input: '', todos: _List_Nil};
+var $author$project$Main$init = {content: '', todos: _List_Nil};
 var $elm_explorations$test$Test$Html$Event$input = function (value) {
 	return _Utils_Tuple2(
 		'input',
@@ -9914,6 +10161,11 @@ var $elm_explorations$test$Test$Html$Event$input = function (value) {
 				])));
 };
 var $elm_explorations$test$Test$Html$Event$simulate = $elm_explorations$test$Test$Html$Event$Event;
+var $elm_explorations$test$Test$Html$Selector$style = F2(
+	function (key, value) {
+		return $elm_explorations$test$Test$Html$Selector$Internal$Style(
+			{key: key, value: value});
+	});
 var $elm_explorations$test$Test$Html$Selector$Internal$Tag = function (a) {
 	return {$: 'Tag', a: a};
 };
@@ -9943,24 +10195,6 @@ var $elm_explorations$test$Test$Html$Selector$Internal$Text = function (a) {
 	return {$: 'Text', a: a};
 };
 var $elm_explorations$test$Test$Html$Selector$text = $elm_explorations$test$Test$Html$Selector$Internal$Text;
-var $author$project$Main$update = F2(
-	function (msg, model) {
-		if (msg.$ === 'Input') {
-			var todoItem = msg.a;
-			return _Utils_update(
-				model,
-				{input: todoItem});
-		} else {
-			return (model.input === '') ? model : _Utils_update(
-				model,
-				{
-					todos: _Utils_ap(
-						model.todos,
-						_List_fromArray(
-							[model.input]))
-				});
-		}
-	});
 var $elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 	switch (handler.$) {
 		case 'Normal':
@@ -9973,8 +10207,6 @@ var $elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
-var $elm$html$Html$button = _VirtualDom_node('button');
-var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
 		return A2(
@@ -9982,6 +10214,259 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			key,
 			$elm$json$Json$Encode$string(string));
 	});
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
+var $elm$core$List$tail = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(xs);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $elm$core$List$takeReverse = F3(
+	function (n, list, kept) {
+		takeReverse:
+		while (true) {
+			if (n <= 0) {
+				return kept;
+			} else {
+				if (!list.b) {
+					return kept;
+				} else {
+					var x = list.a;
+					var xs = list.b;
+					var $temp$n = n - 1,
+						$temp$list = xs,
+						$temp$kept = A2($elm$core$List$cons, x, kept);
+					n = $temp$n;
+					list = $temp$list;
+					kept = $temp$kept;
+					continue takeReverse;
+				}
+			}
+		}
+	});
+var $elm$core$List$takeTailRec = F2(
+	function (n, list) {
+		return $elm$core$List$reverse(
+			A3($elm$core$List$takeReverse, n, list, _List_Nil));
+	});
+var $elm$core$List$takeFast = F3(
+	function (ctr, n, list) {
+		if (n <= 0) {
+			return _List_Nil;
+		} else {
+			var _v0 = _Utils_Tuple2(n, list);
+			_v0$1:
+			while (true) {
+				_v0$5:
+				while (true) {
+					if (!_v0.b.b) {
+						return list;
+					} else {
+						if (_v0.b.b.b) {
+							switch (_v0.a) {
+								case 1:
+									break _v0$1;
+								case 2:
+									var _v2 = _v0.b;
+									var x = _v2.a;
+									var _v3 = _v2.b;
+									var y = _v3.a;
+									return _List_fromArray(
+										[x, y]);
+								case 3:
+									if (_v0.b.b.b.b) {
+										var _v4 = _v0.b;
+										var x = _v4.a;
+										var _v5 = _v4.b;
+										var y = _v5.a;
+										var _v6 = _v5.b;
+										var z = _v6.a;
+										return _List_fromArray(
+											[x, y, z]);
+									} else {
+										break _v0$5;
+									}
+								default:
+									if (_v0.b.b.b.b && _v0.b.b.b.b.b) {
+										var _v7 = _v0.b;
+										var x = _v7.a;
+										var _v8 = _v7.b;
+										var y = _v8.a;
+										var _v9 = _v8.b;
+										var z = _v9.a;
+										var _v10 = _v9.b;
+										var w = _v10.a;
+										var tl = _v10.b;
+										return (ctr > 1000) ? A2(
+											$elm$core$List$cons,
+											x,
+											A2(
+												$elm$core$List$cons,
+												y,
+												A2(
+													$elm$core$List$cons,
+													z,
+													A2(
+														$elm$core$List$cons,
+														w,
+														A2($elm$core$List$takeTailRec, n - 4, tl))))) : A2(
+											$elm$core$List$cons,
+											x,
+											A2(
+												$elm$core$List$cons,
+												y,
+												A2(
+													$elm$core$List$cons,
+													z,
+													A2(
+														$elm$core$List$cons,
+														w,
+														A3($elm$core$List$takeFast, ctr + 1, n - 4, tl)))));
+									} else {
+										break _v0$5;
+									}
+							}
+						} else {
+							if (_v0.a === 1) {
+								break _v0$1;
+							} else {
+								break _v0$5;
+							}
+						}
+					}
+				}
+				return list;
+			}
+			var _v1 = _v0.b;
+			var x = _v1.a;
+			return _List_fromArray(
+				[x]);
+		}
+	});
+var $elm$core$List$take = F2(
+	function (n, list) {
+		return A3($elm$core$List$takeFast, 0, n, list);
+	});
+var $elm_community$list_extra$List$Extra$removeAt = F2(
+	function (index, l) {
+		if (index < 0) {
+			return l;
+		} else {
+			var tail = $elm$core$List$tail(
+				A2($elm$core$List$drop, index, l));
+			var head = A2($elm$core$List$take, index, l);
+			if (tail.$ === 'Nothing') {
+				return l;
+			} else {
+				var t = tail.a;
+				return A2($elm$core$List$append, head, t);
+			}
+		}
+	});
+var $elm_community$list_extra$List$Extra$updateAt = F3(
+	function (index, fn, list) {
+		if (index < 0) {
+			return list;
+		} else {
+			var tail = A2($elm$core$List$drop, index, list);
+			var head = A2($elm$core$List$take, index, list);
+			if (tail.b) {
+				var x = tail.a;
+				var xs = tail.b;
+				return _Utils_ap(
+					head,
+					A2(
+						$elm$core$List$cons,
+						fn(x),
+						xs));
+			} else {
+				return list;
+			}
+		}
+	});
+var $elm_community$list_extra$List$Extra$setAt = F2(
+	function (index, value) {
+		return A2(
+			$elm_community$list_extra$List$Extra$updateAt,
+			index,
+			$elm$core$Basics$always(value));
+	});
+var $author$project$Main$update = F2(
+	function (msg, model) {
+		switch (msg.$) {
+			case 'Input':
+				var todoItem = msg.a;
+				return _Utils_update(
+					model,
+					{content: todoItem});
+			case 'Add':
+				return (model.content === '') ? model : _Utils_update(
+					model,
+					{
+						todos: _Utils_ap(
+							model.todos,
+							_List_fromArray(
+								[
+									{isCompleted: false, isEdited: false, todoContent: model.content}
+								]))
+					});
+			case 'Checked':
+				var checkedIdx = msg.a;
+				var checkedItem = A2(
+					$elm$core$Array$get,
+					checkedIdx,
+					$elm$core$Array$fromList(model.todos));
+				if (checkedItem.$ === 'Nothing') {
+					return model;
+				} else {
+					var checkedTodo = checkedItem.a;
+					return _Utils_update(
+						model,
+						{
+							todos: A3(
+								$elm_community$list_extra$List$Extra$setAt,
+								checkedIdx,
+								_Utils_update(
+									checkedTodo,
+									{isCompleted: !checkedTodo.isCompleted}),
+								model.todos)
+						});
+				}
+			case 'Delete':
+				var deletedIdx = msg.a;
+				var newTodo = A2($elm_community$list_extra$List$Extra$removeAt, deletedIdx, model.todos);
+				return _Utils_update(
+					model,
+					{todos: newTodo});
+			default:
+				var editIdx = msg.a;
+				var editedItem = A2(
+					$elm$core$Array$get,
+					editIdx,
+					$elm$core$Array$fromList(model.todos));
+				if (editedItem.$ === 'Nothing') {
+					return model;
+				} else {
+					var editedTodo = editedItem.a;
+					return _Utils_update(
+						model,
+						{
+							todos: A3(
+								$elm_community$list_extra$List$Extra$setAt,
+								editIdx,
+								_Utils_update(
+									editedTodo,
+									{isEdited: !editedTodo.isEdited}),
+								model.todos)
+						});
+				}
+		}
+	});
+var $elm$html$Html$button = _VirtualDom_node('button');
+var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$input = _VirtualDom_node('input');
 var $elm$html$Html$li = _VirtualDom_node('li');
@@ -9997,6 +10482,12 @@ var $elm$html$Html$Events$onClick = function (msg) {
 	return A2(
 		$elm$html$Html$Events$on,
 		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $elm$html$Html$Events$onDoubleClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'dblclick',
 		$elm$json$Json$Decode$succeed(msg));
 };
 var $elm$html$Html$Events$alwaysStop = function (x) {
@@ -10023,8 +10514,11 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
 var $author$project$Main$view = function (model) {
 	return A2(
 		$elm$html$Html$div,
@@ -10045,7 +10539,7 @@ var $author$project$Main$view = function (model) {
 					_List_fromArray(
 						[
 							$elm$html$Html$Attributes$id('add-button'),
-							$elm$html$Html$Events$onClick($author$project$Main$Click)
+							$elm$html$Html$Events$onClick($author$project$Main$Add)
 						]),
 					_List_fromArray(
 						[
@@ -10053,19 +10547,90 @@ var $author$project$Main$view = function (model) {
 						]))
 				]),
 			A2(
-				$elm$core$List$map,
-				function (t) {
-					return A2(
-						$elm$html$Html$li,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$id('todo-list')
-							]),
-						_List_fromArray(
-							[
-								$elm$html$Html$text(t)
-							]));
-				},
+				$elm$core$List$indexedMap,
+				F2(
+					function (checkedIdx, todo) {
+						return todo.isCompleted ? A2(
+							$elm$html$Html$li,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$id('todo-list'),
+									A2($elm$html$Html$Attributes$style, 'text-decoration', 'line-through'),
+									$elm$html$Html$Events$onDoubleClick(
+									$author$project$Main$Edit(checkedIdx))
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$input,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$type_('checkbox'),
+											$elm$html$Html$Events$onClick(
+											$author$project$Main$Checked(checkedIdx))
+										]),
+									_List_Nil),
+									todo.isEdited ? A2(
+									$elm$html$Html$input,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$value(todo.todoContent),
+											$elm$html$Html$Attributes$type_('text')
+										]),
+									_List_Nil) : $elm$html$Html$text(todo.todoContent),
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$id('delete-button'),
+											$elm$html$Html$Events$onClick(
+											$author$project$Main$Delete(checkedIdx))
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Delete')
+										]))
+								])) : A2(
+							$elm$html$Html$li,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$id('todo-list'),
+									$elm$html$Html$Events$onDoubleClick(
+									$author$project$Main$Edit(checkedIdx))
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$input,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$type_('checkbox'),
+											$elm$html$Html$Events$onClick(
+											$author$project$Main$Checked(checkedIdx))
+										]),
+									_List_Nil),
+									todo.isEdited ? A2(
+									$elm$html$Html$input,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$value(todo.todoContent),
+											$elm$html$Html$Attributes$type_('text')
+										]),
+									_List_Nil) : $elm$html$Html$text(todo.todoContent),
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$id('delete-button'),
+											$elm$html$Html$Events$onClick(
+											$author$project$Main$Delete(checkedIdx))
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Delete')
+										]))
+								]));
+					}),
 				model.todos)));
 };
 var $author$project$Example$suite = A2(
@@ -10134,11 +10699,11 @@ var $author$project$Example$suite = A2(
 			}),
 			A2(
 			$elm_explorations$test$Test$test,
-			'button has a click handler',
+			'add button has a click handler',
 			function (_v3) {
 				return A2(
 					$elm_explorations$test$Test$Html$Event$expect,
-					$author$project$Main$Click,
+					$author$project$Main$Add,
 					A2(
 						$elm_explorations$test$Test$Html$Event$simulate,
 						$elm_explorations$test$Test$Html$Event$click,
@@ -10172,7 +10737,7 @@ var $author$project$Example$suite = A2(
 							$author$project$Main$view(
 								A2(
 									$author$project$Main$update,
-									$author$project$Main$Click,
+									$author$project$Main$Add,
 									A2(
 										$author$project$Main$update,
 										$author$project$Main$Input('foo'),
@@ -10199,7 +10764,7 @@ var $author$project$Example$suite = A2(
 							$author$project$Main$view(
 								A2(
 									$author$project$Main$update,
-									$author$project$Main$Click,
+									$author$project$Main$Add,
 									A2(
 										$author$project$Main$update,
 										$author$project$Main$Input('bar'),
@@ -10258,13 +10823,13 @@ var $author$project$Example$suite = A2(
 							$author$project$Main$view(
 								A2(
 									$author$project$Main$update,
-									$author$project$Main$Click,
+									$author$project$Main$Add,
 									A2(
 										$author$project$Main$update,
 										$author$project$Main$Input('bbb'),
 										A2(
 											$author$project$Main$update,
-											$author$project$Main$Click,
+											$author$project$Main$Add,
 											A2(
 												$author$project$Main$update,
 												$author$project$Main$Input('aaa'),
@@ -10291,13 +10856,13 @@ var $author$project$Example$suite = A2(
 								$author$project$Main$view(
 									A2(
 										$author$project$Main$update,
-										$author$project$Main$Click,
+										$author$project$Main$Add,
 										A2(
 											$author$project$Main$update,
 											$author$project$Main$Input('bbb'),
 											A2(
 												$author$project$Main$update,
-												$author$project$Main$Click,
+												$author$project$Main$Add,
 												A2(
 													$author$project$Main$update,
 													$author$project$Main$Input('aaa'),
@@ -10320,14 +10885,289 @@ var $author$project$Example$suite = A2(
 							$author$project$Main$view(
 								A2(
 									$author$project$Main$update,
-									$author$project$Main$Click,
+									$author$project$Main$Add,
 									A2(
 										$author$project$Main$update,
 										$author$project$Main$Input(''),
 										$author$project$Main$init))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'after adding new list item, each has a checkbox before text',
+			function (_v11) {
+				return A2(
+					$elm_explorations$test$Test$Html$Query$has,
+					_List_fromArray(
+						[
+							$elm_explorations$test$Test$Html$Selector$tag('input')
+						]),
+					A2(
+						$elm_explorations$test$Test$Html$Query$find,
+						_List_fromArray(
+							[
+								$elm_explorations$test$Test$Html$Selector$tag('li')
+							]),
+						$elm_explorations$test$Test$Html$Query$fromHtml(
+							$author$project$Main$view(
+								A2(
+									$author$project$Main$update,
+									$author$project$Main$Add,
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Input('aaa'),
+										$author$project$Main$init))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'checkbox has a click handler',
+			function (_v12) {
+				return A2(
+					$elm_explorations$test$Test$Html$Event$expect,
+					$author$project$Main$Checked(0),
+					A2(
+						$elm_explorations$test$Test$Html$Event$simulate,
+						$elm_explorations$test$Test$Html$Event$click,
+						A2(
+							$elm_explorations$test$Test$Html$Query$find,
+							_List_fromArray(
+								[
+									$elm_explorations$test$Test$Html$Selector$tag('input'),
+									$elm_explorations$test$Test$Html$Selector$attribute(
+									$elm$html$Html$Attributes$type_('checkbox'))
+								]),
+							$elm_explorations$test$Test$Html$Query$fromHtml(
+								$author$project$Main$view(
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Add,
+										A2(
+											$author$project$Main$update,
+											$author$project$Main$Input('aaa'),
+											$author$project$Main$init)))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'when checkbox is unchecked, related list item will not be crossed',
+			function (_v13) {
+				return A2(
+					$elm_explorations$test$Test$Html$Query$hasNot,
+					_List_fromArray(
+						[
+							A2($elm_explorations$test$Test$Html$Selector$style, 'text-decoration', 'line-through')
+						]),
+					A2(
+						$elm_explorations$test$Test$Html$Query$find,
+						_List_fromArray(
+							[
+								$elm_explorations$test$Test$Html$Selector$tag('li')
+							]),
+						$elm_explorations$test$Test$Html$Query$fromHtml(
+							$author$project$Main$view(
+								A2(
+									$author$project$Main$update,
+									$author$project$Main$Add,
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Input('aaa'),
+										$author$project$Main$init))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'when checkbox is checked, the checked list item will be crossed',
+			function (_v14) {
+				return A2(
+					$elm_explorations$test$Test$Html$Query$has,
+					_List_fromArray(
+						[
+							A2($elm_explorations$test$Test$Html$Selector$style, 'text-decoration', 'line-through')
+						]),
+					A2(
+						$elm_explorations$test$Test$Html$Query$find,
+						_List_fromArray(
+							[
+								$elm_explorations$test$Test$Html$Selector$tag('li')
+							]),
+						$elm_explorations$test$Test$Html$Query$fromHtml(
+							$author$project$Main$view(
+								A2(
+									$author$project$Main$update,
+									$author$project$Main$Checked(0),
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Add,
+										A2(
+											$author$project$Main$update,
+											$author$project$Main$Input('aaa'),
+											$author$project$Main$init)))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'when checkbox is unchecked, the checked list item will not be crossed',
+			function (_v15) {
+				return A2(
+					$elm_explorations$test$Test$Html$Query$hasNot,
+					_List_fromArray(
+						[
+							A2($elm_explorations$test$Test$Html$Selector$style, 'text-decoration', 'line-through')
+						]),
+					A2(
+						$elm_explorations$test$Test$Html$Query$find,
+						_List_fromArray(
+							[
+								$elm_explorations$test$Test$Html$Selector$tag('li')
+							]),
+						$elm_explorations$test$Test$Html$Query$fromHtml(
+							$author$project$Main$view(
+								A2(
+									$author$project$Main$update,
+									$author$project$Main$Checked(0),
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Checked(0),
+										A2(
+											$author$project$Main$update,
+											$author$project$Main$Add,
+											A2(
+												$author$project$Main$update,
+												$author$project$Main$Input('aaa'),
+												$author$project$Main$init))))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'each delete button has a click handler',
+			function (_v16) {
+				return A2(
+					$elm_explorations$test$Test$Html$Event$expect,
+					$author$project$Main$Delete(0),
+					A2(
+						$elm_explorations$test$Test$Html$Event$simulate,
+						$elm_explorations$test$Test$Html$Event$click,
+						A2(
+							$elm_explorations$test$Test$Html$Query$find,
+							_List_fromArray(
+								[
+									$elm_explorations$test$Test$Html$Selector$id('delete-button')
+								]),
+							$elm_explorations$test$Test$Html$Query$fromHtml(
+								$author$project$Main$view(
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Add,
+										A2(
+											$author$project$Main$update,
+											$author$project$Main$Input('aaa'),
+											$author$project$Main$init)))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'clicked on delete button can delete the selected list item',
+			function (_v17) {
+				return A2(
+					$elm_explorations$test$Test$Html$Query$hasNot,
+					_List_fromArray(
+						[
+							$elm_explorations$test$Test$Html$Selector$tag('li'),
+							$elm_explorations$test$Test$Html$Selector$text('aaa')
+						]),
+					$elm_explorations$test$Test$Html$Query$fromHtml(
+						$author$project$Main$view(
+							A2(
+								$author$project$Main$update,
+								$author$project$Main$Delete(0),
+								A2(
+									$author$project$Main$update,
+									$author$project$Main$Add,
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Input('aaa'),
+										$author$project$Main$init))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'each list item text has a double clicked handler',
+			function (_v18) {
+				return A2(
+					$elm_explorations$test$Test$Html$Event$expect,
+					$author$project$Main$Edit(0),
+					A2(
+						$elm_explorations$test$Test$Html$Event$simulate,
+						$elm_explorations$test$Test$Html$Event$doubleClick,
+						A2(
+							$elm_explorations$test$Test$Html$Query$find,
+							_List_fromArray(
+								[
+									$elm_explorations$test$Test$Html$Selector$id('todo-list')
+								]),
+							$elm_explorations$test$Test$Html$Query$fromHtml(
+								$author$project$Main$view(
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Add,
+										A2(
+											$author$project$Main$update,
+											$author$project$Main$Input('aaa'),
+											$author$project$Main$init)))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'double clicked on the selected list item will have an input field',
+			function (_v19) {
+				return A2(
+					$elm_explorations$test$Test$Html$Query$has,
+					_List_fromArray(
+						[
+							$elm_explorations$test$Test$Html$Selector$tag('input'),
+							$elm_explorations$test$Test$Html$Selector$attribute(
+							$elm$html$Html$Attributes$type_('text'))
+						]),
+					A2(
+						$elm_explorations$test$Test$Html$Query$find,
+						_List_fromArray(
+							[
+								$elm_explorations$test$Test$Html$Selector$id('todo-list')
+							]),
+						$elm_explorations$test$Test$Html$Query$fromHtml(
+							$author$project$Main$view(
+								A2(
+									$author$project$Main$update,
+									$author$project$Main$Edit(0),
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Add,
+										A2(
+											$author$project$Main$update,
+											$author$project$Main$Input('aaa'),
+											$author$project$Main$init)))))));
+			}),
+			A2(
+			$elm_explorations$test$Test$test,
+			'double clicked on the selected list item can edit the text',
+			function (_v20) {
+				return A2(
+					$elm_explorations$test$Test$Html$Query$has,
+					_List_fromArray(
+						[
+							$elm_explorations$test$Test$Html$Selector$tag('li'),
+							$elm_explorations$test$Test$Html$Selector$text('bbb')
+						]),
+					$elm_explorations$test$Test$Html$Query$fromHtml(
+						$author$project$Main$view(
+							A2(
+								$author$project$Main$update,
+								$author$project$Main$Input('bbb'),
+								A2(
+									$author$project$Main$update,
+									$author$project$Main$Edit(0),
+									A2(
+										$author$project$Main$update,
+										$author$project$Main$Add,
+										A2(
+											$author$project$Main$update,
+											$author$project$Main$Input('aaa'),
+											$author$project$Main$init)))))));
 			})
 		]));
-var $author$project$Test$Generated$Main2506117302$main = A2(
+var $author$project$Test$Generated$Main618385146$main = A2(
 	$author$project$Test$Runner$Node$run,
 	{
 		paths: _List_fromArray(
@@ -10335,7 +11175,7 @@ var $author$project$Test$Generated$Main2506117302$main = A2(
 		processes: 8,
 		report: $author$project$Test$Reporter$Reporter$JsonReport,
 		runs: $elm$core$Maybe$Nothing,
-		seed: 363036708754132
+		seed: 13446022777816
 	},
 	$elm_explorations$test$Test$concat(
 		_List_fromArray(
@@ -10346,10 +11186,10 @@ var $author$project$Test$Generated$Main2506117302$main = A2(
 				_List_fromArray(
 					[$author$project$Example$suite]))
 			])));
-_Platform_export({'Test':{'Generated':{'Main2506117302':{'init':$author$project$Test$Generated$Main2506117302$main($elm$json$Json$Decode$int)(0)}}}});}(this));
+_Platform_export({'Test':{'Generated':{'Main618385146':{'init':$author$project$Test$Generated$Main618385146$main($elm$json$Json$Decode$int)(0)}}}});}(this));
 return this.Elm;
 })({});
-var pipeFilename = "/tmp/elm_test-91971.sock";
+var pipeFilename = "/tmp/elm_test-97719.sock";
 // Make sure necessary things are defined.
 if (typeof Elm === "undefined") {
   throw "test runner config error: Elm is not defined. Make sure you provide a file compiled by Elm!";

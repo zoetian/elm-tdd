@@ -17,12 +17,19 @@ main =
 
 
 type alias Model =
-    { todos : List String, input : String }
+    { todos : List Todo, content : String }
+
+
+type alias Todo =
+    { todoContent : String
+    , isCompleted : Bool
+    , isEdited : Bool
+    }
 
 
 init : Model
 init =
-    { todos = [], input = "" }
+    { todos = [], content = "" }
 
 
 
@@ -31,16 +38,52 @@ init =
 
 view : Model -> Html Msg
 view model =
-    Html.div []
+    Html.div
+        [ style "margin-top" "20px"
+        , style "margin-left" "20px"
+        ]
         ([ Html.input [ id "todo-input", onInput Input ] []
-         , button [ id "add-button", onClick Click ] [ text "Add" ]
+         , button [ id "add-button", onClick Add ] [ text "Add" ]
          ]
             ++ (model.todos
-                    |> List.map
-                        (\t ->
-                            li
-                                [ id "todo-list" ]
-                                [ text t ]
+                    |> List.indexedMap
+                        (\checkedIdx todo ->
+                            if todo.isCompleted then
+                                li
+                                    [ id "todo-list"
+                                    , style "text-decoration" "line-through"
+                                    , onDoubleClick (Edit checkedIdx)
+                                    ]
+                                    [ input
+                                        [ type_ "checkbox"
+                                        , onClick (Checked checkedIdx)
+                                        ]
+                                        []
+                                    , if todo.isEdited then
+                                        input [ value todo.todoContent, type_ "text" ] []
+
+                                      else
+                                        text todo.todoContent
+                                    , button [ id "delete-button", onClick (Delete checkedIdx) ] [ text "Delete" ]
+                                    ]
+
+                            else
+                                li
+                                    [ id "todo-list"
+                                    , onDoubleClick (Edit checkedIdx)
+                                    ]
+                                    [ input
+                                        [ type_ "checkbox"
+                                        , onClick (Checked checkedIdx)
+                                        ]
+                                        []
+                                    , if todo.isEdited then
+                                        input [ value todo.todoContent, type_ "text" ] []
+
+                                      else
+                                        text todo.todoContent
+                                    , button [ id "delete-button", onClick (Delete checkedIdx) ] [ text "Delete" ]
+                                    ]
                         )
                )
         )
@@ -48,18 +91,53 @@ view model =
 
 type Msg
     = Input String
-    | Click
+    | Add
+    | Checked Int
+    | Delete Int
+    | Edit Int
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
         Input todoItem ->
-            { model | input = todoItem }
+            { model | content = todoItem }
 
-        Click ->
-            if model.input == "" then
+        Add ->
+            if model.content == "" then
                 model
 
             else
-                { model | todos = model.todos ++ [ model.input ] }
+                -- { model | todos = model.todos ++ [ ( model.content, False ) ] }
+                { model | todos = model.todos ++ [ { todoContent = model.content, isCompleted = False, isEdited = False } ] }
+
+        Checked checkedIdx ->
+            let
+                checkedItem =
+                    Array.get checkedIdx (Array.fromList model.todos)
+            in
+            case checkedItem of
+                Nothing ->
+                    model
+
+                Just checkedTodo ->
+                    { model | todos = setAt checkedIdx { checkedTodo | isCompleted = not checkedTodo.isCompleted } model.todos }
+
+        Delete deletedIdx ->
+            let
+                newTodo =
+                    removeAt deletedIdx model.todos
+            in
+            { model | todos = newTodo }
+
+        Edit editIdx ->
+            let
+                editedItem =
+                    Array.get editIdx (Array.fromList model.todos)
+            in
+            case editedItem of
+                Nothing ->
+                    model
+
+                Just editedTodo ->
+                    { model | todos = setAt editIdx { editedTodo | isEdited = not editedTodo.isEdited } model.todos }
