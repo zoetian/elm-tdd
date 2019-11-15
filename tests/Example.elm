@@ -2,7 +2,7 @@ module Example exposing (suite)
 
 import Expect
 import Html exposing (button)
-import Html.Attributes exposing (type_)
+import Html.Attributes exposing (placeholder, type_)
 import Main
 import Test exposing (..)
 import Test.Html.Event as Event
@@ -13,18 +13,31 @@ import Test.Html.Selector exposing (attribute, id, style, tag, text)
 suite : Test
 suite =
     describe "Todo app"
-        [ test "has a text input" <|
+        [ test "all input field of text can be saved after hitting enter" <|
             \_ ->
                 Main.init
                     |> Main.view
                     |> Query.fromHtml
-                    |> Query.find [ id "todo-input" ]
-                    |> Query.has [ tag "input" ]
-        , test "has an \"add\" button" <|
+                    |> Query.children []
+                    |> Query.index 0
+                    |> Query.has [ tag "form", id "todo-form" ]
+        , test "has a text input inside the form" <|
             \_ ->
                 Main.init
                     |> Main.view
                     |> Query.fromHtml
+                    |> Query.children []
+                    |> Query.index 0
+                    |> Query.children []
+                    |> Query.index 0
+                    |> Query.has [ id "todo-input", placeholder "Add your todo here" |> attribute ]
+        , test "has an \"Add\" button inside the form" <|
+            \_ ->
+                Main.init
+                    |> Main.view
+                    |> Query.fromHtml
+                    |> Query.children []
+                    |> Query.index 0
                     |> Query.children []
                     |> Query.index 1
                     |> Query.has [ id "add-button", tag "button", text "Add" ]
@@ -36,13 +49,13 @@ suite =
                     |> Query.find [ id "todo-input" ]
                     |> Event.simulate (Event.input "foo")
                     |> Event.expect (Main.Input "foo")
-        , test "add button has a click handler" <|
+        , test "form has a submit handler" <|
             \_ ->
                 Main.init
                     |> Main.view
                     |> Query.fromHtml
-                    |> Query.find [ id "add-button" ]
-                    |> Event.simulate Event.click
+                    |> Query.find [ id "todo-form" ]
+                    |> Event.simulate Event.submit
                     |> Event.expect Main.Add
         , test "typing in input then click on button creates a list item" <|
             \_ ->
@@ -197,17 +210,19 @@ suite =
                     |> Query.fromHtml
                     |> Query.find [ id "todo-list" ]
                     |> Query.has [ tag "input", type_ "text" |> attribute ]
-        , test "double clicked on the selected list item can edit the text" <|
-            \_ ->
-                Main.init
-                    |> Main.update (Main.Input "aaa")
-                    |> Main.update Main.Add
-                    |> Main.update (Main.Edit 0)
-                    |> Main.update (Main.Input "bbb")
-                    |> Main.view
-                    |> Query.fromHtml
-                    |> Query.has [ tag "li", text "bbb" ]
 
+        --        , test "double clicked on the selected list item can edit the text" <|
+        --            \_ ->
+        --                Main.init
+        --                    |> Main.update (Main.Input "aaa")
+        --                    |> Main.update Main.Add
+        --                    |> Main.update (Main.Edit 0)
+        --                    |> Main.update (Main.Input "bbb")
+        --                    |> Main.view
+        --                    |> Query.fromHtml
+        --                    |> Query.has [ tag "li", text "bbb" ]
+        --
+        --
         --                    |> Event.simulate (Event.input "bbb")
         --                    |> Event.expect (Main.Input "bbb")
         ]

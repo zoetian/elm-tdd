@@ -38,55 +38,68 @@ init =
 
 view : Model -> Html Msg
 view model =
-    Html.div
+    div
         [ style "margin-top" "20px"
         , style "margin-left" "20px"
         ]
-        ([ Html.input [ id "todo-input", onInput Input ] []
-         , button [ id "add-button", onClick Add ] [ text "Add" ]
-         ]
-            ++ (model.todos
-                    |> List.indexedMap
-                        (\checkedIdx todo ->
-                            if todo.isCompleted then
-                                li
-                                    [ id "todo-list"
-                                    , style "text-decoration" "line-through"
-                                    , onDoubleClick (Edit checkedIdx)
+        [ form
+            [ id "todo-form", onSubmit Add ]
+            [ input
+                [ id "todo-input"
+                , placeholder "Add your todo here"
+                , onInput Input
+                ]
+                []
+            , button
+                [ id "add-button"
+                , type_ "submit"
+                ]
+                [ text "Add" ]
+            ]
+        , ul
+            []
+            (model.todos
+                |> List.indexedMap
+                    (\checkedIdx todo ->
+                        if todo.isCompleted then
+                            li
+                                [ id "todo-list"
+                                , style "text-decoration" "line-through"
+                                , onDoubleClick (Edit checkedIdx)
+                                ]
+                                [ input
+                                    [ type_ "checkbox"
+                                    , onClick (Checked checkedIdx)
                                     ]
-                                    [ input
-                                        [ type_ "checkbox"
-                                        , onClick (Checked checkedIdx)
-                                        ]
-                                        []
-                                    , if todo.isEdited then
-                                        input [ value todo.todoContent, type_ "text" ] []
+                                    []
+                                , if todo.isEdited then
+                                    input [ value todo.todoContent, type_ "text" ] []
 
-                                      else
-                                        text todo.todoContent
-                                    , button [ id "delete-button", onClick (Delete checkedIdx) ] [ text "Delete" ]
-                                    ]
+                                  else
+                                    text todo.todoContent
+                                , button [ id "delete-button", onClick (Delete checkedIdx) ] [ text "Delete" ]
+                                ]
 
-                            else
-                                li
-                                    [ id "todo-list"
-                                    , onDoubleClick (Edit checkedIdx)
+                        else
+                            li
+                                [ id "todo-list"
+                                , onDoubleClick (Edit checkedIdx)
+                                ]
+                                [ input
+                                    [ type_ "checkbox"
+                                    , onClick (Checked checkedIdx)
                                     ]
-                                    [ input
-                                        [ type_ "checkbox"
-                                        , onClick (Checked checkedIdx)
-                                        ]
-                                        []
-                                    , if todo.isEdited then
-                                        input [ value todo.todoContent, type_ "text" ] []
+                                    []
+                                , if todo.isEdited then
+                                    input [ value todo.todoContent, type_ "text" ] []
 
-                                      else
-                                        text todo.todoContent
-                                    , button [ id "delete-button", onClick (Delete checkedIdx) ] [ text "Delete" ]
-                                    ]
-                        )
-               )
-        )
+                                  else
+                                    text todo.todoContent
+                                , button [ id "delete-button", onClick (Delete checkedIdx) ] [ text "Delete" ]
+                                ]
+                    )
+            )
+        ]
 
 
 type Msg
