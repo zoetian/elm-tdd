@@ -210,19 +210,17 @@ suite =
                     |> Query.fromHtml
                     |> Query.find [ id "todo-list" ]
                     |> Query.has [ tag "input", type_ "text" |> attribute ]
+        , test "double clicked can edit the text, and saved changes by hitting enter" <|
+            \_ ->
+                Main.init
+                    |> Main.update (Main.Input "aaa")
+                    |> Main.update Main.Add
+                    |> Main.update (Main.Edit 0)
+                    |> Main.update (Main.Input "bbb")
+                    |> Main.view
+                    |> Query.fromHtml
+                    |> Query.has [ tag "li", text "bbb" ]
 
-        --        , test "double clicked on the selected list item can edit the text" <|
-        --            \_ ->
-        --                Main.init
-        --                    |> Main.update (Main.Input "aaa")
-        --                    |> Main.update Main.Add
-        --                    |> Main.update (Main.Edit 0)
-        --                    |> Main.update (Main.Input "bbb")
-        --                    |> Main.view
-        --                    |> Query.fromHtml
-        --                    |> Query.has [ tag "li", text "bbb" ]
-        --
-        --
-        --                    |> Event.simulate (Event.input "bbb")
-        --                    |> Event.expect (Main.Input "bbb")
+        --                            |> Event.simulate (Event.input "bbb")
+        --                            |> Event.expect (Main.Input "bbb")
         ]
